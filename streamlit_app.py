@@ -71,14 +71,10 @@ def connect_to_db(db_name):
 # get response Azure OpenAI
 def get_openai_response(user_input):
     client = AzureOpenAI(
-    # model=AZURE_OPENAI_MODEL_NAME,
-    # engine=AZURE_OPENAI_ENGINE,
     api_key = AZURE_OPENAI_KEY,
     azure_endpoint = AZURE_OPENAI_ENDPOINT,
-    # api_type=AZURE_OPENAI_TYPE,
     api_version = "2024-03-01-preview",
-    # temperature=0.3,
-)
+    )
     response = client.chat.completions.create(
         model= AZURE_OPENAI_ENGINE",
         messages = [{"role": "user", "content": user_input}],
