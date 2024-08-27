@@ -1,8 +1,7 @@
 import streamlit as st
-import os
 
-os.environ["NLTK_DATA"] = "./nltk_data"
-os.environ["TIKTOKEN_DATA"] = "./tiktoken_cache"
+NLTK_DATA = "./nltk_data"
+TIKTOKEN_DATA = "./tiktoken_cache"
 
 from llama_index.llms.azure_openai import AzureOpenAI
 from pandas import DataFrame
