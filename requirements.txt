@@ -2,3 +2,4 @@ streamlit==1.37.1
 requests==2.31.0
 pandas==2.2.0
 PyMySQL==1.1.0
+llama-index==0.10.1
