@@ -1,6 +1,6 @@
 import streamlit as st
 
-NLTK_DATA = "./download_nltk"
+NLTK_DATA = "./nltk_data"
 TIKTOKEN_DATA = "./tiktoken_cache"
 
 from llama_index.llms.azure_openai import AzureOpenAI
