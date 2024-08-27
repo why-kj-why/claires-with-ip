@@ -15,7 +15,8 @@ DB_NAME = "retail_panopticon"
 CONVO_DB_NAME = "store_questions"
 
 # TellMore IP endpoint
-API_URL = "http://127.0.0.1:5000/response"
+# API_URL = "http://127.0.0.1:5000/response"
+API_URL = "http://tellmore-ip.azurewebsites.net/api/response"
 
 # TellMore Azure OpenAI credentials
 AZURE_OPENAI_KEY = "94173b7e3f284f2c8f8eb1804fa55699"
