@@ -1,9 +1,10 @@
 import streamlit as st
 
-NLTK_DATA = "./nltk_data"
-TIKTOKEN_DATA = "./tiktoken_cache"
+# NLTK_DATA = "./nltk_data"
+# TIKTOKEN_DATA = "./tiktoken_cache"
 
-from llama_index.llms.azure_openai import AzureOpenAI
+# from llama_index.llms.azure_openai import AzureOpenAI
+from openai import AzureOpenAI
 from pandas import DataFrame
 from pymysql import connect
 from requests import post
@@ -33,15 +34,15 @@ CLAIRE_DEEP_PURPLE = "#553D94"
 CLAIRE_MAUVE = "#D2BBFF"
 
 # AzureOpenAI LLM setup
-llm = AzureOpenAI(
-    model=AZURE_OPENAI_MODEL_NAME,
-    engine=AZURE_OPENAI_ENGINE,
-    api_key=AZURE_OPENAI_KEY,
-    azure_endpoint=AZURE_OPENAI_ENDPOINT,
-    api_type=AZURE_OPENAI_TYPE,
-    api_version="2024-03-01-preview",
-    temperature=0.3,
-)
+# llm = AzureOpenAI(
+#     model=AZURE_OPENAI_MODEL_NAME,
+#     engine=AZURE_OPENAI_ENGINE,
+#     api_key=AZURE_OPENAI_KEY,
+#     azure_endpoint=AZURE_OPENAI_ENDPOINT,
+#     api_type=AZURE_OPENAI_TYPE,
+#     api_version="2024-03-01-preview",
+#     temperature=0.3,
+# )
 
 # session state variables
 if 'history' not in st.session_state:
@@ -63,6 +64,25 @@ def connect_to_db(db_name):
         password = DB_PASS,
         db = db_name
     )
+
+
+# get response Azure OpenAI
+def get_openai_response(user_input):
+    client = AzureOpenAI(
+    model=AZURE_OPENAI_MODEL_NAME,
+    engine=AZURE_OPENAI_ENGINE,
+    api_key=AZURE_OPENAI_KEY,
+    azure_endpoint=AZURE_OPENAI_ENDPOINT,
+    api_type=AZURE_OPENAI_TYPE,
+    api_version="2024-03-01-preview",
+    temperature=0.3,
+)
+    response = client.chat.completions.create(
+        model= "tellmore-demo-gpt35", # Replace with your deployment name
+        messages=[{"role": "user", "content": user_input}],
+        max_tokens=50
+    )
+    return response.choices[0].message.content
 
 
 # post business query to TellMore IP
@@ -299,7 +319,7 @@ def store_manager_app():
             respond only with the natural language explanation of the data table output, do not explain the 
             business question or how the columns were selected and queried\n
         """
-        ans = llm.complete(language_prompt).text
+        ans = get_openai_response(language_prompt)
         st.markdown(ans)
 
 
