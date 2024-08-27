@@ -1,5 +1,7 @@
 import streamlit as st
 
+NLTK_DATA = "download_nltk.py"
+
 from llama_index.llms.azure_openai import AzureOpenAI
 from pandas import DataFrame
 from pymysql import connect
