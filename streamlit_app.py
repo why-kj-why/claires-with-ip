@@ -1,7 +1,7 @@
 import streamlit as st
 
 NLTK_DATA = "./nltk_data"
-# TIKTOKEN_DATA = "./tiktoken_cache"
+TIKTOKEN_DATA = "./tiktoken_cache"
 
 from llama_index.llms.azure_openai import AzureOpenAI
 from pandas import DataFrame
