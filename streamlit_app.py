@@ -76,7 +76,7 @@ def get_openai_response(user_input):
     api_version = "2024-03-01-preview",
     )
     response = client.chat.completions.create(
-        model= AZURE_OPENAI_ENGINE",
+        model = AZURE_OPENAI_ENGINE,
         messages = [{"role": "user", "content": user_input}],
         max_tokens = 50
     )
