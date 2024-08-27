@@ -1,6 +1,6 @@
 import streamlit as st
 
-NLTK_DATA = "download_nltk.py"
+NLTK_DATA = "./download_nltk"
 
 from llama_index.llms.azure_openai import AzureOpenAI
 from pandas import DataFrame
