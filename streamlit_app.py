@@ -44,6 +44,8 @@ CLAIRE_MAUVE = "#D2BBFF"
 #     temperature=0.3,
 # )
 
+st.set_page_config(layout = 'wide', initial_sidebar_state = 'collapsed')  # wide mode
+
 # session state variables
 if 'history' not in st.session_state:
     st.session_state['history'] = []
@@ -325,7 +327,6 @@ def store_manager_app():
 
 # main application setup
 set_custom_css()
-st.set_page_config(layout = 'wide', initial_sidebar_state = 'collapsed')  # wide mode
 persona = st.sidebar.radio("", ("Ask a Question", "Simulate a Store"))  # sidebar toggle
 
 if persona == "Ask a Question":
