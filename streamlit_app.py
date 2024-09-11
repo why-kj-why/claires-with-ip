@@ -44,7 +44,11 @@ CLAIRE_MAUVE = "#D2BBFF"
 #     temperature=0.3,
 # )
 
-st.set_page_config(layout = 'wide', initial_sidebar_state = 'collapsed')  # wide mode
+st.set_page_config(
+    layout = 'wide', 
+    initial_sidebar_state = 'collapsed',
+    page_title = 'Store OPS App',
+)  # wide mode
 
 # session state variables
 if 'history' not in st.session_state:
