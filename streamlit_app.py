@@ -48,6 +48,7 @@ st.set_page_config(
     layout = 'wide', 
     initial_sidebar_state = 'collapsed',
     page_title = 'Store OPS App',
+    page_icon = 'claires-logo.svg',
 )  # wide mode
 
 # session state variables
